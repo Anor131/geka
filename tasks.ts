@@ -11,17 +11,18 @@ export interface Task {
 }
 
 export const TASK_REGISTRY: Record<string, Task[]> = {
+  web: [
+    { id: 'open_chrome', label: 'فتح جوجل كروم', executor: 'cmd', description: 'تشغيل متصفح جوجل كروم فوراً', isSensitive: false },
+    { id: 'google_search_cmd', label: 'بحث سريع في جوجل', executor: 'cmd', description: 'فتح كروم والبحث عن موضوع محدد', isSensitive: false },
+    { id: 'web_browse', label: 'تصفح موقع محدد', executor: 'cmd', description: 'فتح رابط مباشر في المتصفح الافتراضي' },
+    { id: 'email_login', label: 'دخول الإيميل', executor: 'web_agent', description: 'دخول البريد وقراءة الرسائل الجديدة', isSensitive: true },
+    { id: 'site_register', label: 'تسجيل بموقع', executor: 'web_agent', description: 'إنشاء حساب جديد بناءً على بياناتك', isSensitive: true }
+  ],
   clean: [
     { id: 'cache_purge', label: 'تنظيف الكاش العميق', executor: 'cleaner', description: 'مسح الملفات المؤقتة وسجلات النظام لتسريع الأداء', isSensitive: true },
     { id: 'memory_boost', label: 'تحسين الذاكرة (RAM)', executor: 'cleaner', description: 'إغلاق العمليات غير الضرورية وتحرير مساحة الذاكرة' },
     { id: 'registry_fix', label: 'إصلاح السجلات', executor: 'cleaner', description: 'فحص وإصلاح أخطاء سجلات النظام (Registry)', isSensitive: true },
     { id: 'disk_analyzer', label: 'تحليل المساحة', executor: 'ai', description: 'تحليل ذكي للملفات الكبيرة واقتراح ما يمكن حذفه' }
-  ],
-  web: [
-    { id: 'web_browse', label: 'تصفح موقع', executor: 'web_agent', description: 'فتح موقع واستخراج البيانات الأساسية منه' },
-    { id: 'email_login', label: 'دخول الإيميل', executor: 'web_agent', description: 'دخول البريد وقراءة الرسائل الجديدة', isSensitive: true },
-    { id: 'search_media', label: 'بحث عن (فيلم/أداة)', executor: 'ai', description: 'إيجاد أفضل الروابط والمصادر المتاحة' },
-    { id: 'site_register', label: 'تسجيل بموقع', executor: 'web_agent', description: 'إنشاء حساب جديد بناءً على بياناتك', isSensitive: true }
   ],
   dev: [
     { id: 'full_app_gen', label: 'توليد مشروع كامل', executor: 'coder', description: 'إنشاء هيكلية تطبيق كاملة مع الملفات الأساسية' },

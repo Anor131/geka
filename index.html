@@ -6,71 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مركز قيادة الذكاء الاصطناعي - النسخة الذهبية</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #050505;
-            color: #d4af37;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+            color: #f0f0f0;
             font-family: 'Cairo', sans-serif;
             margin: 0;
             overflow: hidden;
         }
         .luxury-font {
-            font-family: 'Amiri', serif;
+            font-family: 'Cinzel', serif;
         }
         .gold-gradient {
-            background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            background: linear-gradient(135deg, #d4af37, #f2d472, #b38728);
         }
         .gold-text-gradient {
             background: linear-gradient(to bottom, #fcf6ba 0%, #bf953f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
         .gold-border {
-            border: 1px solid rgba(191, 149, 63, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         @keyframes gold-pulse {
-            0%, 100% { box-shadow: 0 0 10px rgba(191, 149, 63, 0.2); border-color: rgba(191, 149, 63, 0.4); }
-            50% { box-shadow: 0 0 25px rgba(191, 149, 63, 0.5); border-color: rgba(191, 149, 63, 0.8); }
+            0%, 100% { border-color: rgba(191, 149, 63, 0.4); }
+            50% { border-color: rgba(191, 149, 63, 0.9); box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); }
         }
         
-        @keyframes deploy-reveal {
-            from { clip-path: inset(50% 50% 50% 50%); opacity: 0; transform: scale(0.95) translateY(10px); filter: blur(10px); }
-            to { clip-path: inset(0% 0% 0% 0%); opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .asset-active {
-            animation: gold-pulse 2s infinite ease-in-out;
-        }
-
         .preview-deploy {
             animation: deploy-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .shimmer-text {
-            background: linear-gradient(90deg, #bf953f 0%, #fcf6ba 50%, #bf953f 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 4s linear infinite;
+        @keyframes deploy-reveal {
+            from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
-        ::-webkit-scrollbar {
-            width: 4px;
+        .text-glow {
+            text-shadow: 0 0 10px rgba(191, 149, 63, 0.3);
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #bf953f;
-            border-radius: 10px;
-        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #bf953f; border-radius: 10px; }
     </style>
 <script type="importmap">
 {
@@ -78,7 +65,10 @@
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
+    "react": "https://esm.sh/react@^19.2.3",
+    "next": "https://esm.sh/next@^16.1.1",
+    "child_process": "https://esm.sh/child_process@^1.0.2",
+    "util": "https://esm.sh/util@^0.12.5"
   }
 }
 </script>
